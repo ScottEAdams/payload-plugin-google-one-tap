@@ -14,7 +14,7 @@ interface GoogleOneTapStrategyOptionWithRequest {
 
 const GoogleOneTapStrategy = ({ config, collections }: Payload) => {
 	const opts: GoogleOneTapStrategyOptionWithRequest = {
-		clientID: process.env.GOOGLE_CLIENT_ID,
+		clientID: process.env.PAYLOAD_PUBLIC_GOOGLE_CLIENT_ID,
 		clientSecret: process.env.GOOGLE_CLIENT_SECRET,
 		verifyCsrfToken: false,
 		passReqToCallback: true

@@ -1,5 +1,12 @@
+# payload-plugin-google-one-tap
+
+Adds google-one-tap functionality to the login page.
+
+You will need your google credentials as environment variables:
+```dotenv
 PAYLOAD_PUBLIC_GOOGLE_CLIENT_ID=your-client-id.apps.googleusercontent.com
 GOOGLE_CLIENT_SECRET=your-google-secret
+```
 
 
 ```js
