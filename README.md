@@ -31,5 +31,5 @@ GOOGLE_CLIENT_SECRET=your-google-secret
 				}
 			}
 		})
-	},
+	}
 ```
