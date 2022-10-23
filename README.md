@@ -14,6 +14,18 @@ PAYLOAD_PUBLIC_GOOGLE_CLIENT_ID=your-client-id.apps.googleusercontent.com
 GOOGLE_CLIENT_SECRET=your-google-secret
 ```
 
+Then you can add the plugin to your payload.config:
+
+```js
+import googleOneTap from 'payload-plugin-google-one-tap'
+
+export default buildConfig({
+    ...
+    plugins: [googleOneTap()],
+    ...
+})
+```
+
 This package uses the following libraries:
 
 https://github.com/MomenSherif/react-oauth
