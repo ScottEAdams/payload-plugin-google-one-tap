@@ -7,7 +7,7 @@ import GoogleOneTapStrategy from './strategy'
 import { addBeforeLogin, addEndpointsToConfig, addProvider, addStrategyToCollection } from './utils'
 
 const googleOneTap =
-	() =>
+	(buttonProps = {}) =>
 	(incomingConfig: Config): Config => {
 		let config: Config = {
 			...incomingConfig
@@ -28,7 +28,7 @@ const googleOneTap =
 		config = addEndpointsToConfig(config, GoogleOneTapEndpoint)
 
 		// add the components
-		config = addBeforeLogin(config, GoogleOneTapButton)
+		config = addBeforeLogin(config, GoogleOneTapButton(buttonProps))
 		config = addProvider(config, GoogleOneTapProvider)
 
 		return config

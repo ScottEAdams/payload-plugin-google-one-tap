@@ -2,16 +2,28 @@
 
 Adds google-one-tap functionality to the login page.
 
-You will need your google credentials as environment variables:
+## Installation
+
+```
+yarn add payload-plugin-google-one-tap
+```
+
+You will need to add your google credentials as environment variables:
 ```dotenv
 PAYLOAD_PUBLIC_GOOGLE_CLIENT_ID=your-client-id.apps.googleusercontent.com
 GOOGLE_CLIENT_SECRET=your-google-secret
 ```
 
+This package uses the following libraries:
+
+https://github.com/MomenSherif/react-oauth
+
+https://github.com/Genially/passport-google-one-tap
+
+You will need to add the following webpack config:
 
 ```js
     admin: {
-		user: Users.slug,
 		webpack: (config) => ({
 			...config,
 			resolve: {
@@ -33,3 +45,24 @@ GOOGLE_CLIENT_SECRET=your-google-secret
 		})
 	}
 ```
+
+You can customise the login button if you like by passing in some props in your payload.config.ts. Heres the defaults:
+
+```js
+plugins: [
+	googleOneTap({
+		type: 'standard',
+		theme: 'outline',
+		size: 'large',
+		text: 'signin_with',
+		shape: 'rectangular',
+		logo_alignment: 'left',
+		width: null, // auto,
+		locale: null,
+		useOneTap: true,
+		auto_select: false,
+		ux_mode: 'popup'
+	})
+]
+```
+
