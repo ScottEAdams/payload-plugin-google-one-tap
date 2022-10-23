@@ -14,7 +14,7 @@ const googleOneTap =
 		}
 
 		// add the strategy
-		const userSlug = config.admin.user
+		const userSlug = config?.admin?.user || 'users'
 
 		config.collections = config?.collections?.map((collectionConfig) => {
 			if (collectionConfig.slug === userSlug) {

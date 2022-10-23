@@ -57,8 +57,8 @@ plugins: [
 		text: 'signin_with',
 		shape: 'rectangular',
 		logo_alignment: 'left',
-		width: null, // auto,
-		locale: null,
+		width: undefined, // auto,
+		locale: undefined,
 		useOneTap: true,
 		auto_select: false,
 		ux_mode: 'popup'

@@ -1,9 +1,10 @@
-import { CookieOptions } from 'express'
+import { CookieOptions, Response } from 'express'
 import jwt from 'jsonwebtoken'
 
 import { getCookieExpiration, getFieldsToSign, sanitizeInternalFields } from './utils'
+import { PayloadRequest } from 'payload/types'
 
-const finalise = (req, res) => {
+const finalise = (req: PayloadRequest, res: Response) => {
 	let user = req.user.toJSON({ virtuals: true })
 	user = JSON.parse(JSON.stringify(user))
 	user = sanitizeInternalFields(user)

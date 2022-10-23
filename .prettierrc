@@ -1,0 +1,32 @@
+{
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "endOfLine": "auto",
+  "printWidth": 110,
+  "semi": false,
+  "singleQuote": true,
+  "jsxSingleQuote": true,
+  "bracketSameLine": false,
+  "trailingComma": "none",
+  "tabWidth": 4,
+  "useTabs": true,
+  "overrides": [
+    {
+      "files": "package*.json",
+      "options": {
+        "printWidth": 1000
+      }
+    },
+    {
+      "files": [
+        "**/*.css",
+        "**/*.scss",
+        "**/*.html",
+        "**/*.yml"
+      ],
+      "options": {
+        "singleQuote": false
+      }
+    }
+  ]
+}

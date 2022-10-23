@@ -1,10 +1,12 @@
 import finalise from './finalise'
+import { PayloadRequest } from 'payload/types'
+import { Response } from 'express'
 
 const GoogleOneTapEndpoint = {
 	path: '/oauth2/callback/google',
 	method: 'post',
 	root: true,
-	handler: async (req, res) => {
+	handler: async (req: PayloadRequest, res: Response) => {
 		req.payload.authenticate(req, res, () => {
 			if (req?.user) {
 				const final = finalise(req, res)

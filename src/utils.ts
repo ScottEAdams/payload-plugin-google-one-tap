@@ -6,6 +6,7 @@ import {
 	CheckboxField,
 	CodeField,
 	CollapsibleField,
+	CollectionConfig,
 	DateField,
 	EmailField,
 	Field,
@@ -22,6 +23,8 @@ import {
 	UIField,
 	UploadField
 } from 'payload/types'
+import { Config, Endpoint } from 'payload/config'
+import React from 'react'
 
 export const makeRandomPassword = (length = 20) => {
 	const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz~!@-#$'
@@ -30,8 +33,8 @@ export const makeRandomPassword = (length = 20) => {
 		.join('')
 }
 
-export const addStrategyToCollection = (collectionConfig, strategy) => {
-	if (!collectionConfig?.auth) {
+export const addStrategyToCollection = (collectionConfig: CollectionConfig, strategy: any) => {
+	if (!collectionConfig?.auth || typeof collectionConfig.auth === 'boolean') {
 		collectionConfig.auth = {}
 	}
 	const existingStrategies = collectionConfig?.auth?.strategies || []
@@ -39,13 +42,16 @@ export const addStrategyToCollection = (collectionConfig, strategy) => {
 	return collectionConfig
 }
 
-export const addEndpointsToConfig = (config, endpoint) => {
+export const addEndpointsToConfig = (config: Config, endpoint: Endpoint) => {
 	const existingEndpoints = config?.endpoints || []
 	config.endpoints = [...existingEndpoints, endpoint]
 	return config
 }
 
-export const addBeforeLogin = (config, component) => {
+export const addBeforeLogin = (config: Config, component: React.ComponentType<any>) => {
+	if (!config?.admin) {
+		config.admin = {}
+	}
 	if (!config?.admin?.components) {
 		config.admin.components = {}
 	}
@@ -54,7 +60,10 @@ export const addBeforeLogin = (config, component) => {
 	return config
 }
 
-export const addProvider = (config, component) => {
+export const addProvider = (config: Config, component: React.ComponentType<any>) => {
+	if (!config?.admin) {
+		config.admin = {}
+	}
 	if (!config?.admin?.components) {
 		config.admin.components = {}
 	}
@@ -70,7 +79,7 @@ export const getCookieExpiration = (seconds = 7200) => {
 }
 
 const internalFields = ['__v', 'salt', 'hash']
-export const sanitizeInternalFields = (incomingDoc) =>
+export const sanitizeInternalFields = (incomingDoc: any) =>
 	Object.entries(incomingDoc).reduce((newDoc, [key, val]) => {
 		if (key === '_id') {
 			return {
@@ -89,7 +98,7 @@ export const sanitizeInternalFields = (incomingDoc) =>
 		}
 	}, {})
 
-export const getFieldsToSign = (collectionConfig, user) => {
+export const getFieldsToSign = (collectionConfig: any, user: any) => {
 	type FieldWithSubFields = GroupField | ArrayField | RowField | CollapsibleField
 
 	function fieldHasSubFields(field: Field): field is FieldWithSubFields {
@@ -128,7 +137,7 @@ export const getFieldsToSign = (collectionConfig, user) => {
 	}
 
 	return collectionConfig.fields.reduce(
-		(signedFields, field: Field) => {
+		(signedFields: any, field: Field) => {
 			const result = {
 				...signedFields
 			}

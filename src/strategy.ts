@@ -20,6 +20,7 @@ const GoogleOneTapStrategy = ({ config, collections }: Payload) => {
 		passReqToCallback: true
 	}
 
+	// @ts-ignore
 	return new GOTStrategy(opts, async (req: PayloadRequest, profile, done) => {
 		if (req.user) {
 			done(null, req.user)
