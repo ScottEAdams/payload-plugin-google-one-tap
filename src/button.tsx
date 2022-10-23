@@ -20,6 +20,7 @@ const GoogleOneTapButton = () => {
 	return (
 		<div style={{ display: 'flex', justifyContent: 'center', marginBottom: 30 }}>
 			<GoogleLogin
+				theme='filled_black'
 				onSuccess={async (credentialResponse) => {
 					try {
 						const response = await fetch(
