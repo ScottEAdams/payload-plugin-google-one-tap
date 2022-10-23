@@ -1,6 +1,6 @@
 {
   "name": "payload-plugin-google-one-tap",
-  "description": "Payload CMS plugin Google One Tap",
+  "description": "Adds Google One Tap login to Payload CMS",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
