@@ -17,7 +17,7 @@ GOOGLE_CLIENT_SECRET=your-google-secret
 Then you can add the plugin to your payload.config:
 
 ```js
-import googleOneTap from 'payload-plugin-google-one-tap'
+import { googleOneTap } from 'payload-plugin-google-one-tap'
 
 export default buildConfig({
     ...
@@ -56,6 +56,13 @@ You will need to add the following webpack config:
 			}
 		})
 	}
+```
+
+And finally you will need to add the following to your server.ts file:
+```js
+const app = express()
+
+app.use(express.json())
 ```
 
 You can customise the login button if you like by passing in some props in your payload.config.ts. Heres the defaults:
