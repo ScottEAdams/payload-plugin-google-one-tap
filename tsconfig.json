@@ -5,7 +5,7 @@
       "dom.iterable",
       "esnext"
     ],
-    "target": "es2019",
+    "target": "es5",
     "outDir": "./dist",
     "allowJs": true,
     "module": "commonjs",
