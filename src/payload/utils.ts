@@ -64,8 +64,9 @@ export const ignoreServerOnlyModules = (config: Config) => {
 	if (!config?.admin) {
 		config.admin = {}
 	}
+	const webpack = config.admin?.webpack
 	config.admin.webpack = (webpackConfig) => {
-		const resolved = config.admin?.webpack?.(webpackConfig) || {}
+		const resolved = webpack?.(webpackConfig) || webpackConfig
 		return {
 			...resolved,
 			resolve: {
