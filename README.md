@@ -32,13 +32,6 @@ https://github.com/MomenSherif/react-oauth
 
 https://github.com/Genially/passport-google-one-tap
 
-And finally you will need to add the following to your server.ts file:
-```js
-const app = express()
-
-app.use(express.json())
-```
-
 You can customise the login button if you like by passing in some props in your payload.config.ts. Heres the defaults:
 
 ```js

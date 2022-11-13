@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "@react-oauth/google": "^0.2.8",
+    "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "passport-google-one-tap": "^1.0.0",
     "payload": "^1.1.15",
