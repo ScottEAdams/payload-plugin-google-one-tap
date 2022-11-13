@@ -1,7 +1,7 @@
 {
   "name": "payload-plugin-google-one-tap",
   "description": "Adds Google One Tap login to Payload CMS",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "author": "Scott Adams <scottadams80@gmail.com>",
@@ -16,7 +16,6 @@
   ],
   "dependencies": {
     "@react-oauth/google": "^0.2.8",
-    "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "passport-google-one-tap": "^1.0.0",
     "payload": "^1.1.15",

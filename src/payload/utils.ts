@@ -60,27 +60,6 @@ export const addBeforeLogin = (config: Config, component: React.ComponentType<an
 	return config
 }
 
-export const ignoreServerOnlyModules = (config: Config) => {
-	if (!config?.admin) {
-		config.admin = {}
-	}
-	config.admin.webpack = (webpackConfig) => {
-		const resolved = config.admin?.webpack?.(webpackConfig) || {}
-		return {
-			...resolved,
-			resolve: {
-				...resolved.resolve,
-				alias: {
-					...resolved.resolve?.alias,
-					'google-auth-library': false,
-					jsonwebtoken: false
-				}
-			}
-		}
-	}
-	return config
-}
-
 export const addProvider = (config: Config, component: React.ComponentType<any>) => {
 	if (!config?.admin) {
 		config.admin = {}

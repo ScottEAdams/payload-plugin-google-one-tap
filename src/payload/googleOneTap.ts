@@ -4,7 +4,7 @@ import GoogleOneTapButton from '../components/button'
 import GoogleOneTapEndpoint from './endpoint'
 import GoogleOneTapProvider from '../components/provider'
 import GoogleOneTapStrategy from './strategy'
-import { addBeforeLogin, addEndpointsToConfig, addProvider, addStrategyToCollection, ignoreServerOnlyModules } from './utils'
+import { addBeforeLogin, addEndpointsToConfig, addProvider, addStrategyToCollection } from './utils'
 import { CollectionConfig } from 'payload/types'
 
 const googleOneTap =
@@ -31,9 +31,6 @@ const googleOneTap =
 			// add the components
 			config = addBeforeLogin(config, GoogleOneTapButton(buttonProps))
 			config = addProvider(config, GoogleOneTapProvider)
-
-			// configure webpack
-			config = ignoreServerOnlyModules(config)
 
 			return config
 		}
