@@ -32,32 +32,6 @@ https://github.com/MomenSherif/react-oauth
 
 https://github.com/Genially/passport-google-one-tap
 
-You will need to add the following webpack config:
-
-```js
-    admin: {
-		webpack: (config) => ({
-			...config,
-			resolve: {
-				...config.resolve,
-				fallback: {
-					...config.resolve.fallback,
-					util: require.resolve('util'),
-					stream: require.resolve('stream-browserify'),
-					fs: false,
-					url: false,
-					querystring: false,
-					child_process: false,
-					assert: false,
-					tls: false,
-					net: false,
-					os: false
-				}
-			}
-		})
-	}
-```
-
 And finally you will need to add the following to your server.ts file:
 ```js
 const app = express()
