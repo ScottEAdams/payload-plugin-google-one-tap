@@ -73,6 +73,7 @@ export const ignoreServerOnlyModules = (config: Config) => {
 				...resolved.resolve,
 				alias: {
 					...resolved.resolve?.alias,
+					express: false,
 					'google-auth-library': false,
 					jsonwebtoken: false
 				}
