@@ -5,8 +5,7 @@ import { getCookieExpiration, getFieldsToSign, sanitizeInternalFields } from './
 import { PayloadRequest } from 'payload/types'
 
 const finalise = (req: PayloadRequest, res: Response) => {
-	let user = req.user.toJSON({ virtuals: true })
-	user = JSON.parse(JSON.stringify(user))
+	let user = JSON.parse(JSON.stringify(req.user))
 	user = sanitizeInternalFields(user)
 
 	const collections = req.payload.collections
